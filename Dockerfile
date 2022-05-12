@@ -1,5 +1,5 @@
 ARG DEBIAN_VERSION=buster
-FROM debian:$DEBIAN_VERSION as builder
+FROM arm32v7/debian:$DEBIAN_VERSION as builder
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -38,7 +38,7 @@ RUN cmake -DBUILD_TEST=off \
  && make \
  && make install
 
-FROM debian:$DEBIAN_VERSION
+FROM arm32v7/debian:$DEBIAN_VERSION
 
 LABEL Description="vzlogger"
 

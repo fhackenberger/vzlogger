@@ -42,13 +42,11 @@
     "meters": [
         {
             // Logarex LK13-BE 001LOG0065165335 Main house smart meter
-            "enabled": true,                // disabled meters will be ignored (default)
-            "allowskip": false,             // errors when opening meter may be ignored if enabled
+            "enabled": true,               // disabled meters will be ignored (default)
+            "allowskip": false,                  // errors when opening meter may be ignored if enabled
             "protocol": "d0",               // meter protocol, see 'vzlogger -h' for full list
-            "pullseq": "2F3F210D0A",        // Init seq for pull meters acc to vzlogger wiki
-            "ackseq": "063035300D0A",       // Start seq sets baudrate to 9600 8N1 according to email Weidmann 2022-04-19
-            "device": "/dev/weidm-rs485-mainh", // meter device (relies on custom udev rule on /etc/udev/rules.d)
-//            "device": "/dev/null",        // meter device
+            "device": "/dev/weidm-ir-mainh",       // meter device (relies on custom udev rule on /etc/udev/rules.d)
+//            "device": "/dev/null",       // meter device
 //            "dump_file": "/var/log/d0.txt", // detailed log file for all received/transmitted data (optional)
 
             "parity": "8N1",                // Serial parity, 7E1 or 8N1
@@ -56,7 +54,7 @@
 
 //          "read_timeout": 10,             // optional read timeout, default 10s. Data reading is considered finished if no state change after that timeout
 //          "aggtime": 20,                  // aggregate meter readings and send middleware update after <aggtime> seconds
-            "interval": 1,                  // Wartezeit in Sekunden bis neue Werte in die middleware übertragen werden
+            "interval": 0,                  // Wartezeit in Sekunden bis neue Werte in die middleware übertragen werden
 
 
 // ATTENTION: Re-ordering breaks the home assistant sensor configuration! Append only!!!
@@ -65,32 +63,32 @@
                 "uuid": "559e6af6-836d-4b60-b8cd-ff45dbdc4c40",
                 "identifier": "1-0:1.8.0",  // OBIS identifier
 //              "aggmode": "MAX"            // aggregation mode: aggregate meter readings during <aggtime> interval
-                "api": "null"               // No volkszaehler API, only push through integrated httpd, push or mqtt
+                "api": "null"                 // No volkszaehler API, only push through integrated httpd, push or mqtt
             },{
                 // The kWh counter for feeding back to the network
                 "uuid": "d57bae60-d7d2-4173-bc47-cb4c82d1d612",
                 "identifier": "1-0:2.8.0",  // OBIS identifier
-                "api": "null"               // No volkszaehler API, only push through integrated httpd, push or mqtt
+                "api": "null"                 // No volkszaehler API, only push through integrated httpd, push or mqtt
             },{
                 // The current usage in W
                 "uuid": "f2b7f72e-b6ec-42b9-81d3-61363a99a141",
                 "identifier": "1-0:16.7.0",  // OBIS identifier
-                "api": "null"                // No volkszaehler API, only push through integrated httpd, push or mqtt
+                "api": "null"                 // No volkszaehler API, only push through integrated httpd, push or mqtt
             },{
                 // The voltage on phase 1
                 "uuid": "6f53c448-b1c7-4bbb-a6e0-a7f252a76acc",
                 "identifier": "1-0:32.7.0",  // OBIS identifier
-                "api": "null"                // No volkszaehler API, only push through integrated httpd, push or mqtt
+                "api": "null"                 // No volkszaehler API, only push through integrated httpd, push or mqtt
             },{
                 // The voltage on phase 2
                 "uuid": "0012afd0-e4f6-4e8e-bf52-5abe65cf728f",
                 "identifier": "1-0:52.7.0",  // OBIS identifier
-                "api": "null"                // No volkszaehler API, only push through integrated httpd, push or mqtt
+                "api": "null"                 // No volkszaehler API, only push through integrated httpd, push or mqtt
             },{
                 // The voltage on phase 3
                 "uuid": "cde29162-3d31-4057-8004-ab76a2db5a9c",
                 "identifier": "1-0:72.7.0",  // OBIS identifier
-                "api": "null"                // No volkszaehler API, only push through integrated httpd, push or mqtt
+                "api": "null"                 // No volkszaehler API, only push through integrated httpd, push or mqtt
             },{
                 // The amps on phase 1
                 "uuid": "98ad74dd-84ec-46ed-b8f6-0b1dd0982c8b",
@@ -148,9 +146,7 @@
             "enabled": true,               // disabled meters will be ignored (default)
             "allowskip": false,                  // errors when opening meter may be ignored if enabled
             "protocol": "d0",               // meter protocol, see 'vzlogger -h' for full list
-            "pullseq": "2F3F210D0A",        // Init seq for pull meters acc to vzlogger wiki
-            "ackseq": "063035300D0A",       // Start seq sets baudrate to 9600 8N1 according to email Weidmann 2022-04-19
-            "device": "/dev/weidm-rs485-bunga",       // meter device (relies on custom udev rule on /etc/udev/rules.d)
+            "device": "/dev/weidm-ir-bunga",       // meter device (relies on custom udev rule on /etc/udev/rules.d)
 //            "device": "/dev/null",       // meter device
 //            "dump_file": "/var/log/d0.txt", // detailed log file for all received/transmitted data (optional)
 
@@ -159,7 +155,7 @@
 
 //          "read_timeout": 10,             // optional read timeout, default 10s. Data reading is considered finished if no state change after that timeout
 //          "aggtime": 20,                  // aggregate meter readings and send middleware update after <aggtime> seconds
-            "interval": 1,                  // Wartezeit in Sekunden bis neue Werte in die middleware übertragen werden
+            "interval": 0,                  // Wartezeit in Sekunden bis neue Werte in die middleware übertragen werden
 
 
 // ATTENTION: Re-ordering breaks the home assistant sensor configuration! Append only!!!
